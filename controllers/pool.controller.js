@@ -46,6 +46,10 @@ const getWeb3 = async () => {
       console.log(data);
     }
     const jsonString = JSON.stringify(row);
+    fs.writeFile('pool_list.json', '', (err) => {
+      if (err) throw err;
+      console.log('Initialize file');
+    });
     fs.appendFile('pool_list.json', jsonString, (err) => {
       if (err) throw err;
       console.log('Data written to file');
